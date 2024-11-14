@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h2 class="text-center">Edit Employee Details Here</h2>
+<form method="POST" enctype="multipart/form-data">
+
+{% csrf_token %}
+  <div class="mb-3">
+    <label class="form-label">Emp_id</label>
+      <input type="number" class="form-control" name="e"  value="{{employee.emp_id}}"  placeholder="enter the emp_id">
+  </div>
+      <div class="mb-3">
+    <label class="form-label">E_name</label>
+    <input type="text" class="form-control" name="n" value="{{employee.e_name}}" placeholder="Enter the e_name">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Age</label>
+    <input type="number" class="form-control" name="a" value="{{employee.age}}" placeholder="enter the age">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Address</label>
+    <input type="text" class="form-control" name="ad" value="{{employee.address}}" placeholder="Enter the address">
+  </div>
+      <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="email" class="form-control" name="em" value="{{employee.email}}" placeholder="Enter the Email">
+  </div>
+  <div class="mb-3">
+        <label class="form-label">Image</label>
+    <img src="{{employee.image.url}}">
+        <input type="file" class="form-control" name="i">
+    </div>
+  <div>
+      <button class="btn btn-outline-light" type="submit">ADD</button>
+  </div>
+</form>
+{% endblock %}
